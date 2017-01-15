@@ -1,0 +1,46 @@
+// Mixins
+
+.transition-all() {
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    transition: all 0.5s;
+}
+
+.background-cover() {
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
+@fontPath_Lobster: '/assets/fonts/Lobster';
+@fontPath_Lora: '/assets/fonts/Lora';
+@fontPath_OpenSans: '/assets/fonts/Open_Sans';
+@fontPath_Lato: '/assets/fonts/Lato';
+
+.serif() {
+	font-family: 'Lora', 'Times New Roman', serif, STXihei, "华文细黑", Heiti, "黑体", "Microsoft YaHei", "微软雅黑", SimSun, "宋体";
+    src:url('@{fontPath_Lora}/Lora-Regular.ttf');
+}
+
+.sans-serif () {
+    font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif, STXihei, "华文细黑", Heiti, "黑体", "Microsoft YaHei", "微软雅黑";
+    //src:url('@{fontPath_OpenSans}/OpenSans-Regular.ttf');
+    src:url('@{fontPath_Lato}/Lato-Regular.ttf'),
+        url('@{fontPath_Lato}/Lato-Bold.ttf'),
+        url('@{fontPath_Lato}/Lato-Black.ttf'),
+        url('@{fontPath_Lato}/Lato-Light.ttf');
+}
+
+/*.lobster(){
+    font-family: 'Lobster', cursive;
+    src:url('@{fontPath_Lobster}/latin.woff2');
+}
+*/
+@font-face {
+  font-family: 'Lobster';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Lobster'), local('Lobster-Regular'), url('@{fontPath_Lobster}/latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}

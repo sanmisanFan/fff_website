@@ -1,0 +1,270 @@
+@import "bootstrap/bootstrap";
+@import "fontawesome/font-awesome";
+@import "clean-blog/clean-blog";
+
+//@import "//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic";
+//@import "//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,\
+//600italic,700italic,800italic,400,300,600,700,800'";
+
+body {
+
+    background: #f8f8f8 url(/assets/img/pattern.jpg);
+    //background: #f8f8f8;
+    border-top: 2px solid @hentai-pink;
+    //color: #555;
+    //font-weight: 400;
+    //text-align: left;
+}
+
+strong { font-weight: 700; }
+
+// Navigation
+.navbar-mainsite {
+    border-top: 2px solid @hentai-pink;
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 3;
+    background: #f8f8f8 url(/assets/img/pattern.jpg);
+    //background: #f8f8f8;
+    .sans-serif;
+    .navbar-brand {
+        font-weight: 400;
+        //.lobster;
+        font-family: 'Lobster', cursive;
+        font-size: 38px;
+    }
+    .navbar-brand span {
+        font-size: 40px;
+        font-weight: 700;
+        color: @hentai-pink;
+        font-family: 'Lato';
+    }
+    .navbar-logo-pic{
+        font-weight: 400;
+        //.lobster;
+        font-family: 'Lobster', cursive;
+        font-size: 38px;
+    }
+    .nav {
+        li {
+            a {
+                text-transform: uppercase;
+                font-size: 16px;
+                font-weight: 800;
+                letter-spacing: 1px;
+            }
+        }
+    }
+    @media only screen and (min-width: 768px) {
+        
+        border-bottom: 1px solid transparent;
+        .navbar-brand {
+            color: @logo-color;
+            padding: 20px;
+            &:hover,
+            &:focus {
+                color: @hentai-pink;
+            }
+        }
+        .nav {
+            li {
+                a {
+                    color: @logo-color;
+                    padding: 20px;
+                    &:hover,
+                    &:focus {
+                        color: @hentai-pink;
+                    }
+                }
+            }
+        }
+    }
+    @media only screen and (min-width: 1170px) {
+        
+        -webkit-transition: background-color 0.3s;
+        -moz-transition: background-color 0.3s;
+        transition: background-color 0.3s;
+        /* Force Hardware Acceleration in WebKit */
+        -webkit-transform: translate3d(0, 0, 0);
+        -moz-transform: translate3d(0, 0, 0);
+        -ms-transform: translate3d(0, 0, 0);
+        -o-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        &.is-fixed {
+            /* when the user scrolls down, we hide the header right above the viewport */
+            position: fixed;
+            top: -63px;
+            background: #f8f8f8;
+            background-color: fade(white, 90%);
+            border-bottom: 1px solid darken(white, 5%);
+            -webkit-transition: -webkit-transform 0.3s;
+            -moz-transition: -moz-transform 0.3s;
+            transition: transform 0.3s;
+            .navbar-brand {
+                color: @logo-color;
+                &:hover,
+                &:focus {
+                    color: @hentai-pink;
+                }
+            }
+            .nav {
+                li {
+                    a {
+                        color: @logo-color;
+                        &:hover,
+                        &:focus {
+                            color: @hentai-pink;
+                        }
+                    }
+                }
+            }
+        }
+        &.is-visible {
+
+            /* if the user changes the scrolling direction, we show the header */
+            -webkit-transform: translate3d(0, 100%, 0);
+            -moz-transform: translate3d(0, 100%, 0);
+            -ms-transform: translate3d(0, 100%, 0);
+            -o-transform: translate3d(0, 100%, 0);
+            transform: translate3d(0, 100%, 0);
+        }
+    }
+}
+
+//Banner slider
+.focusImgs {
+    background: #222 none repeat scroll 0 0;
+    margin-bottom: 23px;
+    margin-top: 59px;
+    position: relative;
+    text-align: center;
+}
+.focusImgs .swiper-container {
+    height: 250px;
+}
+.focusImgs .swiper-slide {
+    overflow: hidden;
+}
+.focusImgs .swiper-slide a {
+    display: block;
+    height: 100%;
+    position: relative;
+    right: 100%;
+    width: 300%;
+}
+.focusImgs .swiper-slide img {
+    height: 420px;
+    max-height: 100%;
+    width: auto;
+    cursor: pointer;
+}
+.focusImgs .focusImgs_prev, .focusImgs .focusImgs_next {
+    bottom: 0;
+    color: rgba(255, 255, 255, 0.3);
+    display: none;
+    font-size: 80px;
+    font-weight: bolder;
+    line-height: 250px;
+    position: absolute;
+    text-decoration: none;
+    top: 0;
+    width: 80px;
+    z-index: 900;
+}
+.focusImgs .focusImgs_prev:hover, .focusImgs .focusImgs_next:hover {
+    color: #f2f2f2;
+}
+.focusImgs .focusImgs_prev:active, .focusImgs .focusImgs_next:active {
+    color: #fff;
+}
+.focusImgs .focusImgs_prev {
+    left: 0;
+}
+.focusImgs .focusImgs_next {
+    right: 0;
+}
+.focusImgs:hover .focusImgs_prev, .focusImgs:hover .focusImgs_next {
+    display: block;
+}
+@media (min-width: 480px) {
+.focusImgs .swiper-container {
+    height: 250px;
+}
+.focusImgs .focusImgs_prev, .focusImgs .focusImgs_next {
+    line-height: 250px;
+}
+}
+@media (min-width: 768px) {
+.focusImgs .swiper-container {
+    height: 300px;
+}
+.focusImgs .focusImgs_prev, .focusImgs .focusImgs_next {
+    line-height: 300px;
+}
+}
+@media (min-width: 992px) {
+.focusImgs .swiper-container {
+    height: 420px;
+}
+.focusImgs .focusImgs_prev, .focusImgs .focusImgs_next {
+    line-height: 420px;
+}
+}
+.focusImgs_index {
+    bottom: 10px;
+    position: absolute;
+    width: 100%;
+    z-index: 900;
+}
+.focusImgs_index .swiper-pagination-switch {
+    border: 1px solid #fff;
+    border-radius: 10px;
+    cursor: pointer;
+    display: inline-block;
+    height: 10px;
+    margin: 0 10px;
+    width: 10px;
+}
+.focusImgs_index .swiper-active-switch {
+    background: #fff none repeat scroll 0 0;
+    border: 1px solid #fff;
+}
+//banner slider end
+
+
+.intro-header .post-heading .meta a, article a {
+    text-decoration: underline;
+}
+
+h2 {
+    padding-top: 22px;
+}
+h3 {
+    padding-top: 15px;
+}
+
+h2 + p, h3 + p, h4 + p {
+    margin-top: 5px;
+}
+
+// Adjust position of captions
+.caption-title {
+    margin-bottom: 5px;
+}
+.caption-title + p {
+    margin-top: 0;
+}
+
+// Change the styling of dt/dd elements
+dt {
+    margin-bottom: 5px;
+}
+dd {
+    margin-left: 30px;
+    margin-bottom: 10px;
+}
