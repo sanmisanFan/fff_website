@@ -4,6 +4,7 @@ namespace App\Admin\Controllers;
 
 use App\Post;
 use App\Tag;
+use App\Category;
 
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
@@ -80,6 +81,8 @@ class PostController extends Controller
             $grid->column('subtitle', '副标题')->limit(30);
             $grid->page_image('文章图片')->image();
 
+            $grid->categories('分类')->pluck('title')->label('info')->sortable();
+
             $grid->tags('标签')->pluck('tag')->label();
 
             /*
@@ -150,6 +153,8 @@ class PostController extends Controller
 
             
             $form->switch('is_draft', '是否为草稿'); 
+
+            $form->multipleSelect('categories', '分类')->options(Category::all()->pluck('title', 'id'));
 
             $form->multipleSelect('tags', '标签')->options(Tag::all()->pluck('tag', 'id'));
             $form->text('layout')->default('mainsite.layouts.post')->rules('required')->help('定义文章页面使用的布局');

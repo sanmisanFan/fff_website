@@ -11,6 +11,7 @@ Route::group([
     $router->get('/', 'HomeController@index');
     $router->resource('tags', TagController::class);
     $router->resource('posts', PostController::class);
+    $router->resource('categories', CategoryController::class);
 
 
 });

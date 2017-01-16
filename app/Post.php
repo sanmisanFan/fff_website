@@ -26,6 +26,16 @@ class Post extends Model
     }
 
     /**
+     * The many-to-many relationship between posts and categories.
+     *
+     * @return BelongsToMany
+     */
+    public function categories(){
+
+        return $this->belongsToMany(Category::class, 'post_category_pivot', 'post_id', 'category_id');
+    }
+
+    /**
      * Set the title attribute and automatically the slug
      *
      * @param string $value
