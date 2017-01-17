@@ -95,7 +95,7 @@ class Post extends Model
     */
     public function tagLinks($base = '/article?tag=%TAG%'){
 
-        $tags = $this->tags()->lists('tag');
+        $tags = $this->tags()->pluck('tag');
         $return = [];
         foreach ($tags as $tag) {
             $url = str_replace('%TAG%', urlencode($tag), $base);

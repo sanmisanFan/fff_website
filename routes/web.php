@@ -12,5 +12,9 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/article');
+    //return view('welcome');
 });
+
+Route::get('article', 'ArticleController@index');
+Route::get('article/{slug}', 'ArticleController@showPost');

@@ -25,7 +25,8 @@
             "App\\": "app/"
         },
         "files":[
-            "app/Pinyin.php"
+            "app/Pinyin.php",
+            "app/helpers.php"
         ]
     },
     "autoload-dev": {

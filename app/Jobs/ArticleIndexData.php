@@ -6,12 +6,11 @@ use App\Post;
 use App\Tag;
 use Carbon\Carbon;
 use App\Jobs\Job;
-use Illuminate\Contracts\Bus\SelfHandling;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class ArticleIndexData extends Job implements SelfHandling
+class ArticleIndexData extends Job
 {
     protected $tag;
 
