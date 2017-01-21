@@ -8706,7 +8706,7 @@ body {
   webkit-tap-highlight-color: #e75967;
 }
 body {
-  background: #f8f8f8;
+  background: #f8f8f8 url(/assets/img/pattern.jpg);
   border-top: 2px solid #e75967;
 }
 strong {
@@ -8964,8 +8964,12 @@ dd {
   max-width: 100%;
   width: 300px;
 }
+.tile-container .first-layer {
+  padding-top: 0;
+}
 .tile-container .tile {
   background-clip: content-box;
+  margin-bottom: 30px;
 }
 .tile-container .tile .tile-box {
   position: relative;
@@ -8995,16 +8999,24 @@ dd {
     width: 300px;
   }
 }
+.container-fluid {
+  box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1440px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
 /* Common style */
 .tile-box figure {
   position: relative;
   float: left;
   overflow: hidden;
-  margin: 10px 1%;
+  margin: 10px 0;
   min-width: 320px;
   max-width: 480px;
   max-height: 360px;
-  width: 48%;
+  width: 100%;
   background: #3085a3;
   text-align: center;
   cursor: pointer;
@@ -9046,6 +9058,7 @@ dd {
   opacity: 0;
 }
 .tile-box figure h2 {
+  padding-top: 0;
   word-spacing: -0.15em;
   font-weight: 300;
 }
@@ -9060,60 +9073,82 @@ dd {
   letter-spacing: 1px;
   font-size: 68.5%;
 }
-/*---------------*/
-/***** Dexter *****/
-/*---------------*/
-figure.effect-dexter {
-  background: -webkit-linear-gradient(top, #258dc8 0%, #683c13 100%);
-  background: linear-gradient(to bottom, #258dc8 0%, #683c13 100%);
+/*-----------------*/
+/***** Steve *****/
+/*-----------------*/
+figure.effect-steve {
+  z-index: auto;
+  overflow: visible;
+  background: #000;
 }
-figure.effect-dexter img {
+figure.effect-steve:before,
+figure.effect-steve h2:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  content: '';
   -webkit-transition: opacity 0.35s;
   transition: opacity 0.35s;
 }
-figure.effect-dexter:hover img {
-  opacity: 0.4;
+figure.effect-steve:before {
+  box-shadow: 0 3px 30px rgba(0, 0, 0, 0.8);
+  opacity: 0;
 }
-figure.effect-dexter figcaption::after {
-  position: absolute;
-  right: 30px;
-  bottom: 30px;
-  left: 30px;
-  height: calc(20%);
-  border: 7px solid #fff;
-  content: '';
+figure.effect-steve figcaption {
+  z-index: 1;
+}
+figure.effect-steve img {
+  opacity: 1;
   -webkit-transition: -webkit-transform 0.35s;
   transition: -webkit-transform 0.35s;
   transition: transform 0.35s;
   transition: transform 0.35s, -webkit-transform 0.35s;
-  -webkit-transform: translate3d(0, -100%, 0);
-  transform: translate3d(0, -100%, 0);
+  -webkit-transform: perspective(1000px) translate3d(0, 0, 0);
+  transform: perspective(1000px) translate3d(0, 0, 0);
 }
-figure.effect-dexter:hover figcaption::after {
-  -webkit-transform: translate3d(0, 0, 0);
-  transform: translate3d(0, 0, 0);
+figure.effect-steve h2,
+figure.effect-steve p {
+  background: #fff;
+  color: #2d434e;
 }
-figure.effect-dexter figcaption {
-  padding: 3em;
-  text-align: left;
+figure.effect-steve h2 {
+  position: relative;
+  margin-top: 2em;
+  padding: 0.25em;
 }
-figure.effect-dexter p {
-  position: absolute;
-  right: 60px;
-  bottom: 60px;
-  left: 60px;
+figure.effect-steve h2:before {
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
+}
+figure.effect-steve p {
+  margin-top: 1em;
+  padding: 0.5em;
+  font-weight: 800;
   opacity: 0;
   -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
   transition: opacity 0.35s, -webkit-transform 0.35s;
   transition: opacity 0.35s, transform 0.35s;
   transition: opacity 0.35s, transform 0.35s, -webkit-transform 0.35s;
-  -webkit-transform: translate3d(0, -100px, 0);
-  transform: translate3d(0, -100px, 0);
+  -webkit-transform: scale3d(0.9, 0.9, 1);
+  transform: scale3d(0.9, 0.9, 1);
 }
-figure.effect-dexter:hover p {
+figure.effect-steve:hover:before {
   opacity: 1;
-  -webkit-transform: translate3d(0, 0, 0);
-  transform: translate3d(0, 0, 0);
+}
+figure.effect-steve:hover img {
+  -webkit-transform: perspective(1000px) translate3d(0, 0, 21px);
+  transform: perspective(1000px) translate3d(0, 0, 21px);
+}
+figure.effect-steve:hover h2:before {
+  opacity: 0;
+}
+figure.effect-steve:hover p {
+  opacity: 1;
+  -webkit-transform: scale3d(1, 1, 1);
+  transform: scale3d(1, 1, 1);
 }
 
 /*# sourceMappingURL=mainsite.css.map */
