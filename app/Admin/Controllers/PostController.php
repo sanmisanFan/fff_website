@@ -148,7 +148,7 @@ class PostController extends Controller
 
             $form->display('id', 'ID');
             $form->text('title', '标题')->rules('required')->help('输入标签用以显示在网站页面上的标题');
-            $form->text('subtitle', '副标题')->rules('required');
+            $form->text('subtitle', '副标题');
             $form->image('page_image', '文章图片'); //should set a default pic route later
 
             

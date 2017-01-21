@@ -18,6 +18,13 @@
  *
  */
 use Encore\Admin\Form;
+use App\Admin\Extensions\WangEditor;
+use App\Admin\Extensions\CKEditor;
 
 Form::forget('map');
+Form::forget('editor');
+
+//Form::extend('editor', WangEditor::class);
+Form::extend('editor', CKEditor::class);
+
 

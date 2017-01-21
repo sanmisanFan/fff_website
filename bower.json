@@ -39,7 +39,8 @@
     "chartist": "0.7.3",
     "pickadate": "^3.5.6",
     "clean-blog": "^1.0.1",
-    "swiper": "^3.4.0"
+    "swiper": "^3.4.0",
+    "wangEditor": "^2.1.22"
   },
   "resolutions": {
     "jquery-ui": "1.11.3",

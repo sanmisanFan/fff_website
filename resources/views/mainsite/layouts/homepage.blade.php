@@ -44,70 +44,68 @@
 @stop
 
 @section('content')
-  <div class="container">
+  <div class="container-fluid tile-container">
     <div class="row">
-      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <div class='full-tile column col-xs-12'>
+        <span class="full-title">～最新美味内容～</span>
+        <div class="rounded-line"></div>
+      </div>
 
-        {{-- 文章列表 --}}
-        @foreach ($posts as $post)
-          <div class="post-preview">
-            <a href="{{ $post->url($tag) }}">
-              <h2 class="post-title">{{ $post->title }}</h2>
-              @if ($post->subtitle)
-                <h3 class="post-subtitle">{{ $post->subtitle }}</h3>
-              @endif
-            </a>
-            <p class="post-meta">
-              Posted on {{ $post->published_at->format('F j, Y') }}
-              @if ($post->tags->count())
-                in
-                {!! join(', ', $post->tagLinks()) !!}
-              @endif
-            </p>
+      <div class='tile-grid'>
+
+        <div class='tile column col-xs-6 col-sm-4 col-md-3'>
+          <div class="tile-box">
+            <figure class="effect-dexter">
+            <img src="/assets/img/19.jpg" alt="img19"/>
+            <figcaption>
+              <h2>Strange <span>Dexter</span></h2>
+              <p>Dexter had his own strange way. You could watch him training ants.</p>
+              <a href="#">View more</a>
+            </figcaption>     
+          </figure>
           </div>
-          <hr>
-        @endforeach
+        </div>
 
-        {{-- 分页 --}}
-        <ul class="pager">
+        <div class='tile column col-xs-6 col-sm-4 col-md-3'>
+          <div class="tile-box">
+            <figure class="effect-dexter">
+            <img src="/assets/img/19.jpg" alt="img19"/>
+            <figcaption>
+              <h2>Strange <span>Dexter</span></h2>
+              <p>Dexter had his own strange way. You could watch him training ants.</p>
+              <a href="#">View more</a>
+            </figcaption>     
+          </figure>
+          </div>
+        </div>
 
-          {{-- Reverse direction --}}
-          @if ($reverse_direction)
-            @if ($posts->currentPage() > 1)
-              <li class="previous">
-                <a href="{!! $posts->url($posts->currentPage() - 1) !!}">
-                  <i class="fa fa-long-arrow-left fa-lg"></i>
-                  Previous {{ $tag->tag }} Posts
-                </a>
-              </li>
-            @endif
-            @if ($posts->hasMorePages())
-              <li class="next">
-                <a href="{!! $posts->nextPageUrl() !!}">
-                  Next {{ $tag->tag }} Posts
-                  <i class="fa fa-long-arrow-right"></i>
-                </a>
-              </li>
-            @endif
-          @else
-            @if ($posts->currentPage() > 1)
-              <li class="previous">
-                <a href="{!! $posts->url($posts->currentPage() - 1) !!}">
-                  <i class="fa fa-long-arrow-left fa-lg"></i>
-                  Newer {{ $tag ? $tag->tag : '' }} Posts
-                </a>
-              </li>
-            @endif
-            @if ($posts->hasMorePages())
-              <li class="next">
-                <a href="{!! $posts->nextPageUrl() !!}">
-                  Older {{ $tag ? $tag->tag : '' }} Posts
-                  <i class="fa fa-long-arrow-right"></i>
-                </a>
-              </li>
-            @endif
-          @endif
-        </ul>
+        <div class='tile column col-xs-6 col-sm-4 col-md-3'>
+          <div class="tile-box">
+            <figure class="effect-dexter">
+            <img src="/assets/img/19.jpg" alt="img19"/>
+            <figcaption>
+              <h2>Strange <span>Dexter</span></h2>
+              <p>Dexter had his own strange way. You could watch him training ants.</p>
+              <a href="#">View more</a>
+            </figcaption>     
+          </figure>
+          </div>
+        </div>
+
+        <div class='tile column col-xs-6 col-sm-4 col-md-3'>
+          <div class="tile-box">
+            <figure class="effect-dexter">
+            <img src="/assets/img/19.jpg" alt="img19"/>
+            <figcaption>
+              <h2>Strange <span>Dexter</span></h2>
+              <p>Dexter had his own strange way. You could watch him training ants.</p>
+              <a href="#">View more</a>
+            </figcaption>     
+          </figure>
+          </div>
+        </div>
+
+
       </div>
 
     </div>

@@ -1,3 +1,4 @@
+{{-- 网站首页入口 --}}
 <!DOCTYPE html>
 <html lang="en">
 <head>
