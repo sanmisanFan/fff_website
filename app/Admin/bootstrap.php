@@ -1,10 +1,6 @@
 <?php
 
 /**
- * Laravel-admin - admin builder based on Laravel.
- * @author z-song <https://github.com/z-song>
- *
- * Bootstraper for Admin.
  *
  * Here you can remove builtin form field:
  * Encore\Admin\Form::forget(['map', 'editor']);

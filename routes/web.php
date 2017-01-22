@@ -18,3 +18,7 @@ Route::get('/', function () {
 
 Route::get('article', 'ArticleController@index');
 Route::get('article/{slug}', 'ArticleController@showPost');
+
+Route::get('contact', 'ContactController@showForm');
+Route::post('contact', 'ContactController@sendContactInfo');
+
