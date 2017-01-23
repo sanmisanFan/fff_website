@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Requests\ContactMeRequest;
 use Illuminate\Support\Facades\Mail;
+use App\Category;
+use App\Post;
+use App\Tag;
 
 class ContactController extends Controller
 {
@@ -16,7 +19,9 @@ class ContactController extends Controller
      */
     public function showForm()
     {
-        return view('mainsite.contact');
+        $categories = Category::Has('posts')->where('parent_id', 0)->get();
+        //echo $categories;
+        return view('mainsite.contact')->with('categories', $categories);
     }
 
     /**

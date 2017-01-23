@@ -6,8 +6,11 @@ use App\Jobs\ArticleIndexData;
 use Illuminate\Http\Request;
 use App\Post;
 use App\Tag;
+use App\Category;
 use Carbon\Carbon;
 use App\Http\Requests;
+use App\Services\RssFeed;
+use App\Services\SiteMap;
 
 /**
  * index() 中先从请求中获取 $tag 值（没有的话为 null )
@@ -19,8 +22,25 @@ class ArticleController extends Controller
     public function index(Request $request){
 
         $tag = $request->get('tag');
-        $data = $this->dispatch(new ArticleIndexData($tag));
-        $layout = $tag ? Tag::getLayout($tag) : 'mainsite.layouts.homepage';
+        $category = $request->get('category');
+        //$cates = Category::has('posts')->where('parent_id', 0)->get();
+        //echo $cates;
+        $data = $this->dispatch(new ArticleIndexData($tag, $category));
+
+        if ($tag) {
+
+            $layout = Tag::getLayout($tag);
+
+        }else if ($category) {
+
+            $layout = Category::getLayout($category);
+
+        }else{
+
+            $layout = 'mainsite.layouts.homepage';
+        }
+
+        //$layout = $tag ? Tag::getLayout($tag) : 'mainsite.layouts.homepage';
         //echo Carbon::now();
         return view($layout, $data);
     }
@@ -35,7 +55,26 @@ class ArticleController extends Controller
         if ($tag) {
             $tag = Tag::whereTag($tag)->firstOrFail();
         }
+        $categories = Category::Has('posts')->where('parent_id', 0)->get();
 
-        return view($post->layout, compact('post', 'tag'));
+        return view($post->layout, compact('post', 'tag', 'categories'));
+    }
+
+    //Rss订阅
+    public function rss(RssFeed $feed){
+
+        $rss = $feed->getRSS();
+
+        return response($rss)
+            ->header('Content-type', 'application/rss+xml');
+    }
+
+    //Site map
+    public function siteMap(SiteMap $siteMap){
+
+        $map = $siteMap->getSiteMap();
+
+        return response($map)
+            ->header('Content-type', 'text/xml');
     }
 }

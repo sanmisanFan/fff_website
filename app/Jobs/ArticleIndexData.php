@@ -4,6 +4,7 @@ namespace App\Jobs;
 
 use App\Post;
 use App\Tag;
+use App\Category;
 use Carbon\Carbon;
 use App\Jobs\Job;
 use Illuminate\Queue\SerializesModels;
@@ -13,15 +14,17 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 class ArticleIndexData extends Job
 {
     protected $tag;
+    protected $category;
 
     /**
      * Create a new job instance.
      *
      * @param string|null $tag
      */
-    public function __construct($tag)
+    public function __construct($tag, $category)
     {
         $this->tag = $tag;
+        $this->category = $category;
     }
 
     /**
@@ -35,6 +38,10 @@ class ArticleIndexData extends Job
     {
         if ($this->tag) {
             return $this->tagIndexData($this->tag);
+        }
+
+        if ($this->category) {
+            return $this->categoryIndexData($this->category);
         }
 
         return $this->normalIndexData();
@@ -54,6 +61,8 @@ class ArticleIndexData extends Job
             ->orderBy('published_at', 'desc')
             ->simplePaginate(config('website.posts_per_page'));
 
+        $categories = Category::Has('posts')->where('parent_id', 0)->get();
+        
         return [
             'title' => config('website.title'),
             'subtitle' => config('website.subtitle'),
@@ -61,7 +70,8 @@ class ArticleIndexData extends Job
             'page_image' => config('website.page_image'),
             'meta_description' => config('website.description'),
             'reverse_direction' => false,
-            'tag' => null
+            'tag' => null,
+            'categories' => $categories,
         ];
     }
 
@@ -72,6 +82,9 @@ class ArticleIndexData extends Job
      * @return array
      */
     protected function tagIndexData($tag){
+
+
+        $categories = Category::Has('posts')->where('parent_id', 0)->get();
 
         $tag = Tag::where('tag', $tag)->firstOrFail();
         $reverse_direction = (bool)$tag->reverse_direction;
@@ -94,7 +107,44 @@ class ArticleIndexData extends Job
             'page_image' => $page_image,
             'tag' => $tag,
             'reverse_direction' => $reverse_direction,
-            'meta_description' => $tag->meta_description ?: config('website.description')
+            'meta_description' => $tag->meta_description ?: config('website.description'),
+            'categories' => $categories,
+        ];
+    }
+
+    /**
+     * Return data for a category index page
+     *
+     * @param string $category
+     * @return array
+     */
+    protected function categoryIndexData($category){
+
+        $categories = Category::Has('posts')->where('parent_id', 0)->get();
+
+        $category = Category::where('title', $category)->firstOrFail();
+        //echo $category;
+
+        $posts = Post::with('tags')->where('published_at', '<=', Carbon::now())
+            ->whereHas('categories', function ($q) use ($category) {
+                $q->where('title', '=', $category->title);
+            })
+            ->where('is_draft', 0)
+            ->orderBy('published_at', 'desc')
+            ->simplePaginate(config('website.posts_per_page'));
+        $posts->addQuery('title', $category->title);
+
+        $page_image = $category->page_image ?: config('website.page_image');
+
+        return [
+            'title' => $category->title,
+            'subtitle' => $category->subtitle,
+            'posts' => $posts,
+            'page_image' => $page_image,
+            'tag' => null,
+            'reverse_direction' => false,
+            'meta_description' => $category->meta_description ?: config('website.description'),
+            'categories' => $categories,
         ];
     }
 }

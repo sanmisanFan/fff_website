@@ -25,6 +25,12 @@
           <a href="/">Home</a>
         </li>
 
+        @foreach ($categories as $category)
+        <li>
+          <a href="/article?category={{ $category->title }}">{{ $category->title }}</a>
+        </li>
+        @endforeach
+
         <li>
             <a href="/contact">联系我们</a>
         </li>

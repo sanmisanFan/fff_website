@@ -35,7 +35,7 @@ class Category extends Model
     */
     public static function getLayout($category, $default = 'mainsite.layouts.index'){
 
-        $layout = static::whereCategory($category)->pluck('layout')->first();
+        $layout = static::whereTitle($category)->pluck('layout')->first();
 
         return $layout ?: $default;
     }

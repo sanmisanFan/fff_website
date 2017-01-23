@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "097a23857b5042fd057d4edfaa23541f",
-    "content-hash": "953750597614959c34d0fd3970f62afe",
+    "hash": "65460944b75669939b3ab0075ac52b7b",
+    "content-hash": "90d67b7f593245e99c0b7485c3d7f696",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -1448,6 +1448,55 @@
                 "uuid"
             ],
             "time": "2016-11-22 19:21:44"
+        },
+        {
+            "name": "suin/php-rss-writer",
+            "version": "1.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/suin/php-rss-writer.git",
+                "reference": "938b067ba0f3a4d494edbdb1241d054e7d15b633"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://packagist.phpcomposer.com/files/suin/php-rss-writer/938b067ba0f3a4d494edbdb1241d054e7d15b633.zip",
+                "reference": "938b067ba0f3a4d494edbdb1241d054e7d15b633",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "eher/phpunit": ">=1.6",
+                "mockery/mockery": ">=0.7.2",
+                "suin/xoopsunit": ">=1.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Suin\\RSSWriter": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Hidehito Nozawa aka Suin",
+                    "email": "suinyeze@gmail.com"
+                }
+            ],
+            "description": "Yet another simple RSS writer library for PHP 5.4 or later.",
+            "homepage": "https://github.com/suin/php-rss-writer",
+            "keywords": [
+                "feed",
+                "generator",
+                "php",
+                "rss",
+                "writer"
+            ],
+            "time": "2016-07-21 14:05:32"
         },
         {
             "name": "swiftmailer/swiftmailer",

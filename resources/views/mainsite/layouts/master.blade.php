@@ -9,6 +9,8 @@
   <meta name="author" content="{{ config('website.author') }}">
 
   <title>{{ $title or config('website.title') }}</title>
+  <link rel="alternate" type="application/rss+xml" href="{{ url('rss') }}"
+        title="RSS Feed {{ config('website.title') }}">
   <!-- Favicon and touch icons -->
   <link rel="shortcut icon" href="bitbug_favicon.ico">
 

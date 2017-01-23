@@ -22,3 +22,6 @@ Route::get('article/{slug}', 'ArticleController@showPost');
 Route::get('contact', 'ContactController@showForm');
 Route::post('contact', 'ContactController@sendContactInfo');
 
+Route::get('rss', 'ArticleController@rss');
+Route::get('sitemap.xml', 'ArticleController@siteMap');
+
