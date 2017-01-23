@@ -8942,7 +8942,7 @@ dd {
   margin-bottom: 10px;
 }
 .tile-container {
-  padding: 0 5px 20px;
+  padding: 0 90px 20px;
 }
 .tile-container .full-tile {
   padding-bottom: 20px;
@@ -9073,6 +9073,21 @@ dd {
 .tile-box figure p {
   letter-spacing: 1px;
   font-size: 68.5%;
+}
+.tile-box .post-meta {
+  color: #808080;
+  font-size: 18px;
+  font-style: italic;
+  margin-top: 0;
+}
+.tile-box .post-meta > a {
+  text-decoration: none;
+  color: #404040;
+}
+.tile-box .post-meta > a:hover,
+.tile-box .post-meta > a:focus {
+  color: #e75967;
+  text-decoration: underline;
 }
 /*-----------------*/
 /***** Steve *****/

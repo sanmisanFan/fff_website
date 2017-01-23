@@ -52,33 +52,6 @@
         <div class="rounded-line"></div>
       </div>
         
-        <div class='tile col-xs-12 col-sm-6'>
-          <div class="tile-box">
-          <figure class="effect-julia">
-            <img style="background-image: url('/upload/image/post_pic_default.jpg'); height: 356px;" />
-            <figcaption>
-              <h2>我爱吃 <span>炸酱面</span></h2>
-              <p>大家好我最爱吃炸酱面了！超级超级好吃啊啊啊啊啊！</p>
-              <a href="#">View more</a>
-            </figcaption>     
-          </figure>
-          </div>
-        </div>
-
-        <div class='tile col-xs-12 col-sm-6'>
-          <div class="tile-box">
-          <figure class="effect-julia">
-            <img style="background-image: url('/upload/image/7_image.jpg'); height: 356px;" />
-            <figcaption>
-              <h2>Liong <span>小鲜肉</span></h2>
-              <p>裸奔的小鲜肉。</p>
-              <a href="#">View more</a>
-            </figcaption>     
-          </figure>
-          </div>
-        </div>
-        
-        
         @foreach ($posts as $post)
         <div class='tile col-xs-12 col-sm-6'>
           <div class="tile-box">
@@ -91,6 +64,13 @@
                   {{ $post->subtitle }}
                 @endif
               </p>
+              <p class="post-meta">
+              Posted on {{ $post->published_at->format('F j, Y') }}
+              @if ($post->tags->count())
+                in
+                {!! join(', ', $post->tagLinks()) !!}
+              @endif
+            </p>
               <a href="{{ $post->url($tag) }}">View more</a>
             </figcaption>     
           </figure>

@@ -2,7 +2,7 @@
 
 @section('page-header')
   <header class="intro-header"
-          style="background-image: url('{{ page_image($page_image) }}')">
+          style="background-image: url('{{ page_image($page_image) }}'); ">
     <div class="container">
       <div class="row">
         <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
@@ -18,30 +18,41 @@
 @stop
 
 @section('content')
-  <div class="container">
+  <div class="container tile-container">
     <div class="row">
-      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 
-        {{-- 文章列表 --}}
+      <div class='full-tile first-layer col-xs-12'>
+        <span class="full-title">～最新美味内容～</span>
+        <div class="rounded-line"></div>
+      </div>
+        
         @foreach ($posts as $post)
-          <div class="post-preview">
-            <a href="{{ $post->url($tag) }}">
-              <h2 class="post-title">{{ $post->title }}</h2>
-              @if ($post->subtitle)
-                <h3 class="post-subtitle">{{ $post->subtitle }}</h3>
-              @endif
-            </a>
-            <p class="post-meta">
+        <div class='tile col-xs-12 col-sm-6'>
+          <div class="tile-box">
+          <figure class="effect-julia">
+            <img style="background-image: url('{{ page_image($post->page_image) }}'); height: 356px;" />
+            <figcaption>
+              <h2><span>{{ $post->title }}</span></h2>
+              <p>
+                @if ($post->subtitle)
+                  {{ $post->subtitle }}
+                @endif
+              </p>
+              <p class="post-meta">
               Posted on {{ $post->published_at->format('F j, Y') }}
               @if ($post->tags->count())
                 in
                 {!! join(', ', $post->tagLinks()) !!}
               @endif
             </p>
+              <a href="{{ $post->url($tag) }}">View more</a>
+            </figcaption>     
+          </figure>
           </div>
-          <hr>
+        </div>
         @endforeach
 
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
         {{-- 分页 --}}
         <ul class="pager">
 
