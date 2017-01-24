@@ -17,18 +17,17 @@
   <div class="swiper-container" id="j_homeslide">
     <div class="swiper-wrapper">
       <div class="swiper-slide">
-        <a href="">
-          <img class="hidden-xs" src="/assets/img/zaolian_big.jpg" />
-          <img class="visible-xs-inline-block" src="/assets/img/zaolian_small.jpg" />
+        <a href="http://foodforfun.me/article/guanyuwangzhanshangxian">
+          <img src="http://ok1dd68iw.bkt.clouddn.com/image/dietary-advice.png" />
         </a>
       </div>
 
-      <div class="swiper-slide">
+      {{--<div class="swiper-slide">
         <a href="">
           <img class="hidden-xs" src="/assets/img/guodong_big.jpg" />
           <img class="visible-xs-inline-block" src="/assets/img/guodong_small.jpg" />
         </a>
-      </div>
+      </div>--}}
 
       {{--<div class="swiper-slide">
         <a href="">
