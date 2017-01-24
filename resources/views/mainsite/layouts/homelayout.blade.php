@@ -26,6 +26,17 @@
   <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
   <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
   <![endif]-->
+
+  <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?d157886e7e58b1cdf8411bee7c8d1266";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
 </head>
 <body>
 @include('mainsite.partials.homepage-nav')
