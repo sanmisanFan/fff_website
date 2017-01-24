@@ -26,7 +26,7 @@ class HomeController extends Controller
         return Admin::content(function (Content $content) {
 
             $content->header('后台控制面板');
-            $content->description('Why Im cooking soooo goood...');
+            $content->description('全都是假的，是特技。这些图标和数据的整合我会陆续做好～');
 
             $content->row(function ($row) {
                 $row->column(3, new InfoBox('New Users', 'users', 'aqua', '/admin/users', '1024'));

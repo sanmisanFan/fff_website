@@ -30,7 +30,7 @@
         <div class='tile col-xs-12 col-sm-6'>
           <div class="tile-box">
           <figure class="effect-julia">
-            <img style="background-image: url('{{ page_image($post->page_image) }}'); height: 356px;" />
+            <img style="background-image: url('{{ page_image($post->page_thumbnail) }}'); height: 356px;" />
             <figcaption>
               <h2><span>{{ $post->title }}</span></h2>
               <p>

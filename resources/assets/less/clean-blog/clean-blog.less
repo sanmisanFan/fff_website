@@ -91,12 +91,13 @@ hr.small {
 	@media only screen and (min-width: 768px) {
 		background: transparent;
 		border-bottom: 1px solid transparent;
+		text-shadow: 0 0 20px #000;
 		.navbar-brand {
 			color: white;
 			padding: 20px;
 			&:hover,
 			&:focus {
-				color: @white-faded;
+				color: @hentai-pink;
 			}
 		}
 		.nav {
@@ -106,7 +107,7 @@ hr.small {
 					padding: 20px;
 					&:hover,
 					&:focus {
-						color: @white-faded;
+						color: @hentai-pink;
 					}
 				}
 			}
@@ -129,6 +130,7 @@ hr.small {
 			/* when the user scrolls down, we hide the header right above the viewport */
 			position: fixed;
 			top: -63px;
+			text-shadow: 0 0 0 @gray-dark;
 			//background: #f8f8f8;
 			background-color: fade(white, 90%);
 			border-bottom: 1px solid darken(white, 5%);
@@ -139,7 +141,7 @@ hr.small {
 				color: @gray-dark;
 				&:hover,
 				&:focus {
-					color: @brand-primary;
+					color: @hentai-pink;
 				}
 			}
 			.nav {
@@ -148,7 +150,7 @@ hr.small {
 						color: @gray-dark;
 						&:hover,
 						&:focus {
-							color: @brand-primary;
+							color: @hentai-pink;
 						}
 					}
 				}

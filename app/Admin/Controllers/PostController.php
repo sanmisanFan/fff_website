@@ -79,7 +79,7 @@ class PostController extends Controller
             $grid->id('ID')->sortable();
             $grid->column('title', '标题')->sortable();
             $grid->column('subtitle', '副标题')->limit(30);
-            $grid->page_image('文章图片')->image();
+            $grid->page_thumbnail('文章图片')->image();
 
             $grid->categories('分类')->pluck('title')->label('info')->sortable();
 
@@ -150,6 +150,10 @@ class PostController extends Controller
             $form->text('title', '标题')->rules('required')->help('输入标签用以显示在网站页面上的标题');
             $form->text('subtitle', '副标题');
             $form->image('page_image', '文章图片'); //should set a default pic route later
+            $form->image('page_thumbnail', '缩略图')->resize(null, 360, function ($constraint) {
+                                                                            $constraint->aspectRatio();
+                                                                        });
+
 
             
             $form->switch('is_draft', '是否为草稿'); 
