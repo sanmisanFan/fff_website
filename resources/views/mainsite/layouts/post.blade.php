@@ -101,10 +101,8 @@ var jiathis_config={
       </ul>
     </div>
 
-<div class="uyan_frame">
 <!--PC和WAP自适应版-->
 <div id="SOHUCS" sid="{{ $post->id }}" ></div> 
-</div>
 <script type="text/javascript"> 
 (function(){ 
 var appid = 'cysNIQDAN'; 
