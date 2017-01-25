@@ -16,9 +16,20 @@
   </a>
   <div class="swiper-container" id="j_homeslide">
     <div class="swiper-wrapper">
-      <div class="swiper-slide">
+      <div class="swiper-slide intro-header" style="background-image: url('http://ok1dd68iw.bkt.clouddn.com/image/dietary-advice.png'); ">
         <a href="http://foodforfun.me/article/guanyuwangzhanshangxian">
-          <img src="http://ok1dd68iw.bkt.clouddn.com/image/dietary-advice.png" />
+     <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+          <div class="site-heading">
+            <h1>关于网站上线</h1>
+
+            <h2 class="subheading">程序猿相对大家说的话</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+          {{--<img src="http://ok1dd68iw.bkt.clouddn.com/image/dietary-advice.png" />--}}
         </a>
       </div>
 

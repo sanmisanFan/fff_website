@@ -102,6 +102,11 @@ class PostController extends Controller
 
             $grid->is_draft('是否为草稿')->switch($states);
 
+            $grid->slug('预览')->value(function ($slug) {
+                return "<a target='_blank' href='/article/$slug'><i class='fa fa-eye'></i></a>";
+            });
+
+
             $grid->updated_at('修改时间');
             $grid->published_at('发布时间');
 
@@ -128,7 +133,7 @@ class PostController extends Controller
 
                 if ($actions->getKey() > 0) {
                     $actions->disableDelete();
-                    $actions->append('<a href=""><i class="fa fa-eye"></i></a>');
+                    //$actions->append('<a href=""><i class="fa fa-eye"></i></a>');
                 }
             });
 
