@@ -24,7 +24,7 @@
           <div class="site-heading">
             <h1>关于网站上线</h1>
 
-            <h2 class="subheading">程序猿相对大家说的话</h2>
+            <h2 class="subheading">程序猿想对大家说的话</h2>
           </div>
         </div>
       </div>
