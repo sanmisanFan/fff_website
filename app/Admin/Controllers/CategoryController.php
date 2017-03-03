@@ -139,6 +139,12 @@ class CategoryController extends Controller
 
             $form->display('created_at', 'Created At');
             $form->display('updated_at', 'Updated At');
+
+            $form->tools(function (Form\Tools $tools) {
+                // 去掉返回按钮
+                $tools->disableBackButton();
+            });
+
         });
     }
 }

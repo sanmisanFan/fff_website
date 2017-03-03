@@ -100,15 +100,15 @@ class PostController extends Controller
                 'off' => ['value' => 0, 'text' => 'NO'],
             ];
 
-            $grid->is_draft('是否为草稿')->switch($states);
+            $grid->is_draft('是否为草稿')->switch($states)->sortable();
 
             $grid->slug('预览')->value(function ($slug) {
                 return "<a target='_blank' href='/article/$slug'><i class='fa fa-eye'></i></a>";
             });
 
 
-            $grid->updated_at('修改时间');
-            $grid->published_at('发布时间');
+            $grid->updated_at('修改时间')->sortable();
+            $grid->published_at('发布时间')->sortable();
 
             //按照文章名字或者Tag名模糊查询指定文章
             $grid->filter(function ($filter) {
@@ -172,6 +172,14 @@ class PostController extends Controller
             $form->text('meta_description', '文章SEO介绍');
 
             $form->editor('content', '正文内容');
+
+            $form->tools(function (Form\Tools $tools) {
+                // 去掉返回按钮
+                $tools->disableBackButton();
+            });
+
+            //$form->setWidth(8);
+
         });
     }
 }

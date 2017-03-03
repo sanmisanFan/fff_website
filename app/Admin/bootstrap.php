@@ -20,7 +20,7 @@ use App\Admin\Extensions\CKEditor;
 Form::forget('map');
 Form::forget('editor');
 
-//Form::extend('editor', WangEditor::class);
-Form::extend('editor', CKEditor::class);
+Form::extend('editor', WangEditor::class);
+//Form::extend('editor', CKEditor::class);
 
 

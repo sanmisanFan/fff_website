@@ -142,6 +142,12 @@ class TagController extends Controller
 
             $form->display('created_at', '创建时间');
             $form->display('updated_at', '更新时间');
+
+            $form->tools(function (Form\Tools $tools) {
+                // 去掉返回按钮
+                $tools->disableBackButton();
+            });
+
         });
     }
 }
